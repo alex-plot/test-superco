@@ -1,0 +1,75 @@
+<!-- Section's CSS -->
+{{ 'main-grid-collection.css' | asset_url | stylesheet_tag }}
+<!-- Section's CSS END -->
+<!-- Markup -->
+  <div class="row"> <div class="collection-grid">
+    {% for block in section.blocks %}
+      <div class="card-fo">
+        <picture>
+          <source media="(min-width: 1450px)" srcset="{{ block.settings.image | img_url: '1450x' }}">
+          <source media="(min-width: 1250px)" srcset="{{ block.settings.image | img_url: '1250x' }}">
+          <source media="(min-width: 1050px)" srcset="{{ block.settings.image | img_url: '1050x' }}">
+          <source media="(min-width: 950px)" srcset="{{ block.settings.image | img_url: '950x' }}">
+          <source media="(min-width: 750px)" srcset="{{ block.settings.image | img_url: '750x' }}">
+          <source media="(min-width: 550px)" srcset="{{ block.settings.image | img_url: '550x' }}">
+          <img
+            src="{{ block.settings.image | img_url: 'large' }}"
+            alt="{{ block.settings.image.alt }}"
+            loading="lazy">
+        </picture>
+        <div class="card-content">
+          <h3>{{ block.settings.heading_card | escape }}</h3>
+          <a href="{{ block.settings.example_collection }}">{{ block.settings.link_text_card | escape }}</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<!-- Markup END -->
+{% schema %}
+  {
+    "name": "Collection Grid",
+    "tag": "section",
+    "class": "section-grid",
+    "max_blocks": 2,
+    "settings": [],
+    "blocks": [
+      {
+        "type": "grid",
+        "name": "Card",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "Size: 680*800 pixels"
+          }, {
+            "type": "text",
+            "id": "heading_card",
+            "label": "Title",
+            "default": "Housewarming Gifts for the Host"
+          }, {
+            "type": "text",
+            "id": "link_text_card",
+            "label": "Text",
+            "default": "discover them all"
+          }, {
+            "type": "url",
+            "id": "example_collection",
+            "label": "Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection Grid",
+        "blocks": [
+          {
+            "type": "grid"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,90 @@
+<!-- Section's CSS -->
+{{ 'main-header.css' | asset_url | stylesheet_tag }}
+<!-- Section's CSS END -->
+<!-- Markup -->
+  <header>
+    <div class="row"> <!-- Logo -->
+    <div class="logo">
+      <a href="{{ shop.url }}">
+        {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+        {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
+        {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width }}px{% endcapture %}
+        {% capture widths %}
+          {{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
+        {%- if settings.logo != blank -%}
+          {{ settings.logo | image_url: width: 600 | image_tag:
+           class: 'header__heading-logo motion-reduce',
+           widths: widths,
+           height: logo_height,
+           width: settings.logo_width,
+           alt: logo_alt,
+           sizes: sizes,
+           preload: true }}
+        {%- else -%}
+          <img
+            src="{{ 'Logo.svg' | asset_url }}"
+            alt="{{ logo_alt }}"
+            loading="lazy">
+        {%- endif -%}
+      </a>
+    </div>
+    <!-- Logo END -->
+    <div class="content-m-s" id="mobile-menu">
+      <!-- Nav -->
+      {%- if section.settings.menu != blank -%}
+        <nav>
+          <ul>
+            {%- for link in section.settings.menu.links -%}
+              <li>
+                <a href="{{ link.url }}">
+                  <span>{{ link.title | escape }}</span>
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </nav>
+      {%- endif -%}
+      <!-- Nav END -->
+      <!-- Icons -->
+      <div class="header-icons">
+        <ul>
+          <li>
+            <span><img src="{{ 'search.svg' | asset_url }}" alt="{{ "Search" | escape }}"></span>
+          </li>
+          <li>
+            <a href="/cart"><img src="{{ "bag.svg" | asset_url }}" alt="{{ "Cart" | escape }}"></a>
+          </li>
+        </ul>
+      </div>
+      <!-- Icons END -->
+    </div>
+    <!-- Mobile Menu -->
+    <div id="menu-text" class="nav-mobile" onclick="toggleMenu()">
+      <span>MENU</span>
+    </div>
+    <!-- Mobile Menu END -->
+  </div>
+</header>
+<!-- Markup END -->
+<!-- Mobile Menu JS END -->
+<script src="{{ 'mobile-menu.js' | asset_url }}"></script>
+<!-- Mobile Menu JS END -->
+{% schema %}
+  {
+    "name": "t:sections.header.name",
+    "class": "section-header",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "menu",
+        "default": "main-menu",
+        "label": "Main Menu"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "@app"
+      }
+    ]
+  }
+{% endschema %}

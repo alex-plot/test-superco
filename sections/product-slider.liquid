@@ -1,0 +1,95 @@
+<!-- Section's varibals -->
+{% assign collection = section.settings.new_collection %}
+<!-- Section's varibals END -->
+<!-- Section's CSS -->
+{{ 'main-product-slider.css' | asset_url | stylesheet_tag }}
+<!-- Section's CSS END -->
+<!-- Link Swiper's CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" /> <!-- Link Swiper's CSS END -->
+<!-- Markup -->
+  <div class="row"> <div class="slider-m-su">
+    <h2>{{ section.settings.heading }}</h2>
+    <div class="swiper-slider-new">
+      <div class="slider-su swiper mySwiper">
+        <div class="swiper-wrapper">
+          {% if collection != blank %}
+            {% for product in collection.products limit: 15 %}
+              <div
+                onclick="addItem({{ product.variants[0].id }}, 1)"
+                class="card-fo-slider swiper-slide"
+                data-variant-id="{{ product.variants[0].id }}"
+                data-quantity="1">
+                {% comment %} <img
+                  src="{{ product.featured_image | img_url: 'large' }}"
+                  alt="{{ product.featured_image.alt }}"
+                  loading="lazy"> {% endcomment %}
+
+                   <picture>
+                    <source media="(min-width: 1450px)" srcset="{{ product.featured_image | img_url: '1450x' }}">
+                    <source media="(min-width: 1250px)" srcset="{{ product.featured_image | img_url: '1250x' }}">
+                    <source media="(min-width: 1050px)" srcset="{{ product.featured_image | img_url: '1050x' }}">
+                    <source media="(min-width: 950px)" srcset="{{ product.featured_image | img_url: '950x' }}">
+                    <source media="(min-width: 750px)" srcset="{{ product.featured_image | img_url: '750x' }}">
+                    <source media="(min-width: 550px)" srcset="{{ product.featured_image | img_url: '550x' }}">
+                    <img
+                      src="{{ product.featured_image | img_url: 'large' }}"
+                      alt="{{ product.featured_image.alt }}"
+                      loading="lazy">
+                  </picture>  
+
+
+                <div class="footer-block">
+                  <h3>{{ product.title | truncate: 30 }}</h3>
+                  <span>{{ product.price | money }}</span>
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+      <div class="swiper-button-next"><img src="{{ "right.svg" | asset_url }}" alt="right"></div>
+      <div class="swiper-button-prev"><img src="{{ "left.svg" | asset_url }}" alt="left"></div>
+    </div>
+    <div class="div-show-all">
+      <a href="{{ collection.url }}">{{ section.settings.link_text_card }}</a>
+    </div>
+  </div>
+</div>
+<!-- Markup END -->
+<!-- Section's JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="{{ 'swiper-and-add-product.js' | asset_url }}"></script>
+<!-- Section's JS END -->
+{% schema %}
+  {
+    "name": "Product Slider",
+    "tag": "section",
+    "class": "section-slider",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Title",
+        "default": "PARTY A LA CARTE"
+      }, {
+        "type": "text",
+        "id": "link_text_card",
+        "label": "Text",
+        "default": "SHOP ALL"
+      }, {
+        "type": "url",
+        "id": "example_collection",
+        "label": "Link"
+      }, {
+        "type": "collection",
+        "id": "new_collection",
+        "label": "Collection"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product Slider"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,105 @@
+{
+  "sections": {
+    "d6a26379-0435-4495-8ed3-83fe3a43e331": {
+      "type": "having-fun",
+      "blocks": {
+        "template--19227043889468__d6a26379-0435-4495-8ed3-83fe3a43e331-16849718612b02016c-0": {
+          "type": "card",
+          "settings": {
+            "example_color": "#00966e",
+            "image": "shopify:\/\/shop_images\/Rectangle_289.jpg",
+            "heading_card": "Make a scene.",
+            "text": "Everything you need for a great party, from decor to drinks and games.",
+            "link_text_card": "find your scene",
+            "example_collection": "shopify:\/\/collections"
+          }
+        },
+        "02a11199-c24c-4993-aa7e-4310ed557243": {
+          "type": "card",
+          "settings": {
+            "example_color": "#85abbd",
+            "image": "shopify:\/\/shop_images\/Rectangle_289-1_2a81587a-eb0c-420d-913d-c25176b738ae.jpg",
+            "heading_card": "Make it extra.",
+            "text": "Once you’ve chosen a scene, you can dial it up with fun a la carte add-ons.",
+            "link_text_card": "shop party supplies",
+            "example_collection": "shopify:\/\/collections"
+          }
+        },
+        "4eeb7dad-a742-421d-822a-981edfb8dbfd": {
+          "type": "card",
+          "settings": {
+            "example_color": "#e3ff21",
+            "image": "shopify:\/\/shop_images\/Rectangle_289-3.jpg",
+            "heading_card": "Make it joyful.",
+            "text": "Create the arrangement of your dreams with DIY kits from Wild & Flowers.",
+            "link_text_card": "shop florals",
+            "example_collection": "shopify:\/\/collections"
+          }
+        },
+        "2f4fbaf6-2d38-4127-8012-8dea46d2a866": {
+          "type": "card",
+          "settings": {
+            "example_color": "#bf91c4",
+            "image": "shopify:\/\/shop_images\/Rectangle_289-2.jpg",
+            "heading_card": "Make it happen.",
+            "text": "Need a bartender, caterer, or DJ? Just add to cart. It’s that easy.",
+            "link_text_card": "browse vendors",
+            "example_collection": "shopify:\/\/collections"
+          }
+        }
+      },
+      "block_order": [
+        "template--19227043889468__d6a26379-0435-4495-8ed3-83fe3a43e331-16849718612b02016c-0",
+        "02a11199-c24c-4993-aa7e-4310ed557243",
+        "4eeb7dad-a742-421d-822a-981edfb8dbfd",
+        "2f4fbaf6-2d38-4127-8012-8dea46d2a866"
+      ],
+      "settings": {
+        "heading": "HAVING FUN 101"
+      }
+    },
+    "9de04fe2-57d0-4aed-bff9-2570e1a42846": {
+      "type": "collection-grid",
+      "blocks": {
+        "template--19227043889468__9de04fe2-57d0-4aed-bff9-2570e1a42846-1684972673901dc0e9-0": {
+          "type": "grid",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_324.jpg",
+            "heading_card": "Housewarming Gifts for the Host",
+            "link_text_card": "discover them all",
+            "example_collection": "shopify:\/\/collections"
+          }
+        },
+        "2722d736-f017-4622-b300-eea762eab2cb": {
+          "type": "grid",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_324-1.jpg",
+            "heading_card": "The Limited-Edition Holiday Scene",
+            "link_text_card": "shop the scene",
+            "example_collection": "shopify:\/\/collections"
+          }
+        }
+      },
+      "block_order": [
+        "template--19227043889468__9de04fe2-57d0-4aed-bff9-2570e1a42846-1684972673901dc0e9-0",
+        "2722d736-f017-4622-b300-eea762eab2cb"
+      ],
+      "settings": {
+      }
+    },
+    "74b429db-5b35-4806-a6ea-6e03c813de7d": {
+      "type": "product-slider",
+      "settings": {
+        "heading": "PARTY A LA CARTE",
+        "link_text_card": "SHOP ALL",
+        "example_collection": "shopify:\/\/collections\/automated-collection",
+        "new_collection": "automated-collection"
+      }
+    }
+  },
+  "order": [
+    "d6a26379-0435-4495-8ed3-83fe3a43e331",
+    "9de04fe2-57d0-4aed-bff9-2570e1a42846",
+    "74b429db-5b35-4806-a6ea-6e03c813de7d"
+  ]
+}
