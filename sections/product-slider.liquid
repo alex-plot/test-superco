@@ -19,25 +19,20 @@
                 class="card-fo-slider swiper-slide"
                 data-variant-id="{{ product.variants[0].id }}"
                 data-quantity="1">
-                {% comment %} <img
-                  src="{{ product.featured_image | img_url: 'large' }}"
-                  alt="{{ product.featured_image.alt }}"
-                  loading="lazy"> {% endcomment %}
-
-                   <picture>
-                    <source media="(min-width: 1450px)" srcset="{{ product.featured_image | img_url: '1450x' }}">
-                    <source media="(min-width: 1250px)" srcset="{{ product.featured_image | img_url: '1250x' }}">
-                    <source media="(min-width: 1050px)" srcset="{{ product.featured_image | img_url: '1050x' }}">
-                    <source media="(min-width: 950px)" srcset="{{ product.featured_image | img_url: '950x' }}">
-                    <source media="(min-width: 750px)" srcset="{{ product.featured_image | img_url: '750x' }}">
-                    <source media="(min-width: 550px)" srcset="{{ product.featured_image | img_url: '550x' }}">
-                    <img
-                      src="{{ product.featured_image | img_url: 'large' }}"
-                      alt="{{ product.featured_image.alt }}"
-                      loading="lazy">
-                  </picture>  
-
-
+                <picture>
+                  <source media="(min-width: 1450px)" srcset="{{ product.featured_image | image_url: width: 1650 }}">
+                  <source media="(min-width: 1250px)" srcset="{{ product.featured_image | image_url: width: 1250 }}">
+                  <source media="(min-width: 1050px)" srcset="{{ product.featured_image | image_url: width: 1050 }}">
+                  <source media="(min-width: 950px)" srcset="{{ product.featured_image | image_url: width: 950 }}">
+                  <source media="(min-width: 750px)" srcset="{{ product.featured_image | image_url: width: 750 }}">
+                  <source media="(min-width: 550px)" srcset="{{ product.featured_image | image_url: width: 550 }}">
+                  <img
+                    src="{{ product.featured_image | image_url: width: 1250 }}"
+                    alt="{{ product.featured_image.alt }}"
+                    width="{{ product.settings.width }}"
+                    height="{{ product.settings.height }}"
+                    loading="lazy">
+                </picture>
                 <div class="footer-block">
                   <h3>{{ product.title | truncate: 30 }}</h3>
                   <span>{{ product.price | money }}</span>
@@ -47,8 +42,22 @@
           {% endif %}
         </div>
       </div>
-      <div class="swiper-button-next"><img src="{{ "right.svg" | asset_url }}" alt="right"></div>
-      <div class="swiper-button-prev"><img src="{{ "left.svg" | asset_url }}" alt="left"></div>
+      <div class="swiper-button-next">
+        <img
+          src="{{ "right.svg" | asset_url }}"
+          alt="right"
+          width="31"
+          height="16"
+          loading="lazy">
+      </div>
+      <div class="swiper-button-prev">
+        <img
+          src="{{ "left.svg" | asset_url }}"
+          alt="left"
+          width="31"
+          height="16"
+          loading="lazy">
+      </div>
     </div>
     <div class="div-show-all">
       <a href="{{ collection.url }}">{{ section.settings.link_text_card }}</a>
@@ -57,8 +66,8 @@
 </div>
 <!-- Markup END -->
 <!-- Section's JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<script src="{{ 'swiper-and-add-product.js' | asset_url }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js" async></script>
+<script src="{{ 'swiper-and-add-product.js' | asset_url }}" async></script>
 <!-- Section's JS END -->
 {% schema %}
   {

@@ -24,6 +24,8 @@
           <img
             src="{{ 'Logo.svg' | asset_url }}"
             alt="{{ logo_alt }}"
+            width="180"
+            height="48"
             loading="lazy">
         {%- endif -%}
       </a>
@@ -49,17 +51,34 @@
       <div class="header-icons">
         <ul>
           <li>
-            <span><img src="{{ 'search.svg' | asset_url }}" alt="{{ "Search" | escape }}"></span>
+            <span>
+              <img
+                src="{{ 'search.svg' | asset_url }}"
+                alt="{{ "Search" | escape }}"
+                width="20"
+                height="21"
+                loading="lazy">
+            </span>
           </li>
           <li>
-            <a href="/cart"><img src="{{ "bag.svg" | asset_url }}" alt="{{ "Cart" | escape }}"></a>
+            <a href="/cart">
+              <img
+                src="{{ "bag.svg" | asset_url }}"
+                alt="{{ "Cart" | escape }}"
+                width="20"
+                height="21"
+                loading="lazy">
+            </a>
           </li>
         </ul>
       </div>
       <!-- Icons END -->
     </div>
     <!-- Mobile Menu -->
-    <div id="menu-text" class="nav-mobile" onclick="toggleMenu()">
+    <div
+      id="menu-text"
+      class="nav-mobile"
+      onclick="toggleMenu()">
       <span>MENU</span>
     </div>
     <!-- Mobile Menu END -->
@@ -67,7 +86,7 @@
 </header>
 <!-- Markup END -->
 <!-- Mobile Menu JS END -->
-<script src="{{ 'mobile-menu.js' | asset_url }}"></script>
+<script src="{{ 'mobile-menu.js' | asset_url }}" async></script>
 <!-- Mobile Menu JS END -->
 {% schema %}
   {
