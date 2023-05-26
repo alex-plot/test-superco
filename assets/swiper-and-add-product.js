@@ -1,5 +1,5 @@
 // Initialize Swiper
-var swiper = new Swiper(".mySwiper", {
+let swiper = new Swiper(".mySwiper", {
     slidesPerView: 3,
     spaceBetween: 2,
     navigation: {
