@@ -29,8 +29,8 @@
                   <img
                     src="{{ product.featured_image | image_url: width: 450 }}"
                     alt="{{ product.featured_image.alt }}"
-                    width="{{ product.settings.width }}"
-                    height="{{ product.settings.height }}"
+                    width="{{ product.featured_image.width }}"
+                    height="{{ product.featured_image.height }}"
                     loading="lazy">
                 </picture>
                 <div class="footer-block">
